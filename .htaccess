@@ -9,8 +9,4 @@ ErrorDocument 504 /Php-blog_mvc/view/error.php
 RewriteEngine On
 RewriteRule ^([^_]*)_([^_]*)\.html$ /Php-blog_mvc/?p=$1&a=$2 [L]
 RewriteRule ^([^_]*)_([^_]*)_([^_]*)\.html$ /Php-blog_mvc/?p=$1&a=$2&id=$3 [L]
-<<<<<<< HEAD
 RewriteRule ^([^_]*)_([^_]*)_([^_]*)_([^_]*)_([^_]*)\.html$ /Php-blog_mvc/?p=$1&a=$2&postid=$3&commentId=$4&vote=$5 [L]
-=======
-RewriteRule ^([^_]*)_([^_]*)_([^_]*)_([^_]*)_([^_]*)\.html$ /Php-blog_mvc/?p=$1&a=$2&postid=$3&commentId=$4&vote=$5 [L]
->>>>>>> 3064eed70673fcd9a2a471a909a1cce885a840f9
