@@ -1,12 +1,12 @@
-ErrorDocument 403 /Php-blog_mvc/view/error.php
-ErrorDocument 404 /Php-blog_mvc/view/error.php
-ErrorDocument 405 /Php-blog_mvc/view/error.php
-ErrorDocument 408 /Php-blog_mvc/view/error.php
-ErrorDocument 500 /Php-blog_mvc/view/error.php
-ErrorDocument 502 /Php-blog_mvc/view/error.php
-ErrorDocument 504 /Php-blog_mvc/view/error.php
+ErrorDocument 403 /Clinique_mvc/view/error.php
+ErrorDocument 404 /Clinique_mvc/view/error.php
+ErrorDocument 405 /Clinique_mvc/view/error.php
+ErrorDocument 408 /Clinique_mvc/view/error.php
+ErrorDocument 500 /Clinique_mvc/view/error.php
+ErrorDocument 502 /Clinique_mvc/view/error.php
+ErrorDocument 504 /Clinique_mvc/view/error.php
 
 RewriteEngine On
-RewriteRule ^([^_]*)_([^_]*)\.html$ /Php-blog_mvc/?p=$1&a=$2 [L]
-RewriteRule ^([^_]*)_([^_]*)_([^_]*)\.html$ /Php-blog_mvc/?p=$1&a=$2&id=$3 [L]
-RewriteRule ^([^_]*)_([^_]*)_([^_]*)_([^_]*)_([^_]*)\.html$ /Php-blog_mvc/?p=$1&a=$2&postid=$3&commentId=$4&vote=$5 [L]
+RewriteRule ^([^_]*)_([^_]*)\.html$ /Clinique_mvc/?p=$1&a=$2 [L]
+RewriteRule ^([^_]*)_([^_]*)_([^_]*)\.html$ /Clinique_mvc/?p=$1&a=$2&id=$3 [L]
+RewriteRule ^([^_]*)_([^_]*)_([^_]*)_([^_]*)_([^_]*)\.html$ /Clinique_mvc/?p=$1&a=$2&postid=$3&commentId=$4&vote=$5 [L]
