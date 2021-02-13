@@ -17,7 +17,7 @@ class Blog
 
   public function get($iOffset, $iLimit)
   {
-    $oStmt = $this->oDb->prepare('SELECT * FROM Posts ORDER BY createdDate DESC LIMIT :offset, :limit');
+    $oStmt = $this->oDb->prepare('SELECT * FROM animal ORDER BY id DESC LIMIT :offset, :limit');
     $oStmt->bindParam(':offset', $iOffset, \PDO::PARAM_INT);
     $oStmt->bindParam(':limit', $iLimit, \PDO::PARAM_INT);
     $oStmt->execute();
@@ -27,7 +27,7 @@ class Blog
 
   public function getById($iId)
   {
-    $oStmt = $this->oDb->prepare('SELECT * FROM Posts WHERE id = :postId LIMIT 1');
+    $oStmt = $this->oDb->prepare('SELECT * FROM animal WHERE id = :postId LIMIT 1');
     $oStmt->bindParam(':postId', $iId, \PDO::PARAM_INT);
     $oStmt->execute();
     return $oStmt->fetch(\PDO::FETCH_OBJ);
@@ -57,7 +57,7 @@ class Blog
 
   public function getAll()
   {
-    $oStmt = $this->oDb->query('SELECT * FROM Posts ORDER BY createdDate DESC');
+    $oStmt = $this->oDb->query('SELECT t1.id, t1.DateNaissance, t1.image, t1.nom, t2.nom as race, typeAnimal, Propriétaire_id FROM animal AS t1 INNER JOIN (SELECT Animal_id, nom, \'Chat\' as typeAnimal FROM chat As A INNER JOIN race_chat AS B ON A.Race_chat_id = B.id UNION SELECT Animal_id, nom, \'Chien\' FROM chien As A INNER JOIN race_chien AS B ON A.Race_chien_id = B.id) AS t2 ON t1.id = t2.Animal_id');
     return $oStmt->fetchAll(\PDO::FETCH_OBJ);
   }
 

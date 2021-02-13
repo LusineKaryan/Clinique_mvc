@@ -13,7 +13,7 @@ class Admin extends Blog
       if (!$this->isLogged())
       header('Location: blog_index.html');
 
-      $this->oUtil->oPosts = $this->oModel->getAll();
+      $this->oUtil->oAnimals = $this->oModel->getAll();
       $this->oUtil->getView('edit');
     }
 

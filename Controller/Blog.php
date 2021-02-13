@@ -34,7 +34,7 @@ class Blog
   // On obtient seulement les X derniers posts puis on affiche index.php
   public function index()
   {
-      $this->oUtil->oPosts = $this->oModel->get(0, self::MAX_POSTS);
+      $this->oUtil->oAnimals = $this->oModel->get(0, self::MAX_POSTS);
 
       $this->oUtil->getView('index');
   }
@@ -54,7 +54,7 @@ class Blog
       header('Location: blog_index.html');
     }
 
-    $this->oUtil->oPost = $this->oModel->getById($this->_iId);
+    $this->oUtil->oAnimal = $this->oModel->getById($this->_iId);
 	  $this->oUtil->oComments = $this->oModel->getComments();
 		$getUserId = $this->oModel->getUserId(current($_SESSION));
 
@@ -81,7 +81,7 @@ class Blog
 	// On obtient tous les posts puis on affiche la page chapters.php
   public function chapters()
   {
-    $this->oUtil->oPosts = $this->oModel->getAll();
+    $this->oUtil->oAnimals = $this->oModel->getAll();
 
     $this->oUtil->getView('chapters');
   }
