@@ -6,18 +6,18 @@
 
         <!-- Article -->
 
-        <?php if (empty($this->oPost)): ?>
-            <h1>cet article n'existe pas !</h1>
+        <?php if (empty($this->oAnimal)): ?>
+            <h1>Cet animal n'existe pas !</h1>
         <?php else: ?>
 
             <article>
-                <time datetime="<?=$this->oPost->createdDate?>" pubdate="pubdate"></time>
+                <time datetime="<?=$this->oAnimal->DateNaissance?>" pubdate="pubdate"></time>
 
-                <h1><?=htmlspecialchars($this->oPost->title)?></h1>
-                <p><?=nl2br($this->oPost->body)?></p>
+                <h1><?=htmlspecialchars($this->oAnimal->nom)?></h1>
+                <p><?=nl2br($this->oAnimal->body)?></p>
             </article>
             <hr>
-            <p><em>Posté le <?=date('d/m/Y à H:i', strtotime($this->oPost->createdDate));?></em></p>
+            <p><em>Né le <?=date('d/m/Y à H:i', strtotime($this->oAnimal->DateNaissance));?></em></p>
             <br>
 
             <!-- Commentaires -->

@@ -4,22 +4,22 @@
 <div class="container">
   <?php require 'inc/msg.php' ?>
 
-  <?php if (empty($this->oPost)): ?>
-      <p class="error">Cet article n'existe pas !</p>
+  <?php if (empty($this->oAnimal)): ?>
+      <p class="error">Cet animal n'existe pas !</p>
   <?php else: ?>
-    <h1>Modifier l'article :</h1>
+    <h1>Pour changer les données:</h1>
     <form method="post" enctype="multipart/form-data">
     	<div class="row">
 
     		<div class="input-field col s12">
-    			<input type="text" name="title" id="title" value="<?=htmlspecialchars($this->oPost->title)?>" required="required">
-    			<label for="title">Titre de l'article</label>
+    			<input type="text" name="title" id="title" value="<?=htmlspecialchars($this->oAnimal->nom)?>" required="required">
+    			<label for="title">Nom de l'animal</label>
     		</div>
 
     		<div class="input-field col s12">
-          <label for="editable">Contenu de l'article</label>
+          <label for="editable">A propos de l'animal</label>
           <br>
-    			<textarea name="body" id="editable" class="materialize-textarea"><?=$this->oPost->body?></textarea>
+    			<textarea name="body" id="editable" class="materialize-textarea"><?=$this->oAnimal->body?></textarea>
     		</div>
 
         <div class="col s6 left-align">

@@ -2,20 +2,21 @@
 <?php require 'inc/topbar.php' ?>
 <main>
   <div class="container">
-    <h1 class="page-title">Liste des chapitres</h1>
+    <h1 class="page-title">Liste des animaux</h1>
     <?php foreach ($this->oAnimals as $oAnimal): ?>
       <div class="row">
         <hr>
   			<div class="col s12 m12 l12">
-			  <h4><?= $oAnimal->id?></h4>
+			  
   				<h4><?= $oAnimal->nom ?></h4>
-				<h4><?=date('d/m/Y', strtotime($oAnimal->DateNaissance));?></h4>
-				<h4><?= $oAnimal->Propriétaire_id?></h4>
-				<h4><?= $oAnimal->race?></h4>
-				<h4><?= $oAnimal->typeAnimal?></h4>
+				
   				<div class="row">
   					<div class="col s12 m6 l8">
-              
+					<p><?= $oAnimal->typeAnimal?></p>  
+					<p>Date de naissance: &nbsp<?=date('d/m/Y', strtotime($oAnimal->DateNaissance));?></p>
+					<p><?= $oAnimal->Propriétaire_id?></p>
+					<p>Race: &nbsp<?= $oAnimal->race?></p>
+					
               <?php require 'inc/control_buttons.php' ?>
   					</div>
   					<div class="col s12 m6 l4">

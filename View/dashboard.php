@@ -31,7 +31,7 @@
       <table class="centered bordered ">
       	<thead>
       		<tr>
-      			<th>Article</th>
+      			<th>Animal</th>
       			<th>Aperçu des commentaires</th>
       			<th>Actions</th>
       		</tr>
@@ -75,7 +75,7 @@
       <table class="centered bordered ">
       	<thead>
       		<tr>
-      			<th>Article</th>
+      			<th>Animal</th>
       			<th>Aperçu des commentaires</th>
             <th>Signalements</th>
       			<th>Actions</th>

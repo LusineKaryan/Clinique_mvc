@@ -104,7 +104,7 @@ class Admin extends Blog
         'image'  => $name
       ];
 
-      $oStmt = $this->oDb->prepare('UPDATE Posts SET image = :image WHERE id = :id');
+      $oStmt = $this->oDb->prepare('UPDATE animal SET image = :image WHERE id = :id');
       move_uploaded_file($tmp_name,"static/img/posts/".$i['image']);
       return $oStmt->execute($i);
     }
@@ -117,7 +117,7 @@ class Admin extends Blog
         'image'  => $this->oDb->lastInsertId().$extension
       ];
 
-      $oStmt = $this->oDb->prepare('UPDATE Posts SET image = :image WHERE id = :id');
+      $oStmt = $this->oDb->prepare('UPDATE animal SET image = :image WHERE id = :id');
       move_uploaded_file($tmp_name,"static/img/posts/".$i['image']);
       return $oStmt->execute($i);
     }
@@ -136,8 +136,8 @@ class Admin extends Blog
 
     public function delete($iId)
     {
-      $oStmt = $this->oDb->prepare('DELETE FROM Posts WHERE id = :postId LIMIT 1');
-      $oStmt->bindParam(':postId', $iId, \PDO::PARAM_INT);
+      $oStmt = $this->oDb->prepare('DELETE FROM animal WHERE id = :idAnimal LIMIT 1');
+      $oStmt->bindParam(':idAnimal', $iId, \PDO::PARAM_INT);
       return $oStmt->execute();
     }
 
@@ -193,8 +193,11 @@ class Admin extends Blog
 
     public function add(array $aData)
     {
-      $oStmt = $this->oDb->prepare('INSERT INTO Animal (nom) VALUES(:nom)');
+      $oStmt = $this->oDb->prepare('INSERT INTO Animal (nom,DateNaissance, DateDeces, Propriétaire_id) VALUES( :nom, :DateNaissance, :DateDeces, :Proprietaire_id)');
       $oStmt->bindValue(':nom', $aData['nom'], \PDO::PARAM_STR);
+      $oStmt->bindValue(':DateNaissance', $aData['DateNaissance'], \PDO::PARAM_STR);
+      $oStmt->bindValue(':DateDeces', $aData['DateDeces'], \PDO::PARAM_STR);
+      $oStmt->bindValue(':Proprietaire_id', $aData['Proprietaire_id'], \PDO::PARAM_INT);
       return $oStmt->execute();
     }
 

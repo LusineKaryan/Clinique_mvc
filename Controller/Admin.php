@@ -14,6 +14,7 @@ class Admin extends Blog
       header('Location: blog_index.html');
 
       $this->oUtil->oAnimals = $this->oModel->getAll();
+      
       $this->oUtil->getView('edit');
     }
 
@@ -27,7 +28,7 @@ class Admin extends Blog
 
       if (isset($_POST['edit_submit']))
       {
-        if (empty($_POST['title']) || empty($_POST['body']))
+        if (empty($_POST['nom']) || empty($_POST['DateNaissance']))
         {
           $this->oUtil->sErrMsg = 'Tous les champs doivent être remplis.';
         }
@@ -36,7 +37,10 @@ class Admin extends Blog
           $this->oUtil->getModel('Admin');
           $this->oModel = new \BlogPhp\Model\Admin;
 
-          $aData = array('post_id' => $_GET['id'], 'title' => $_POST['title'], 'body' => $_POST['body']);
+          $aData = array('post_id' => $_GET['id'], 'nom' => $_POST['nom'], 
+                                                    'DateNaissance' => $_POST['DateNaissance'], 
+                                                    'DateDeces' => $_POST['DateDeces'], 
+                                                    'Proprietaire_id' => $_POST['Proprietaire_id']);
           $this->oModel->update($aData);
 
           if (!empty($_FILES['image']['name']))
@@ -57,7 +61,7 @@ class Admin extends Blog
       }
 
       /* Récupère les données du post */
-      $this->oUtil->oPost = $this->oModel->getById($_GET['id']);
+      $this->oUtil->oAnimal = $this->oModel->getById($_GET['id']);
 
       $this->oUtil->getView('edit_post');
     }
@@ -72,7 +76,7 @@ class Admin extends Blog
 
       if (isset($_POST['add_submit']))
       {
-          if (empty($_POST['title']) || empty($_POST['body']))
+          if (empty($_POST['nom']) || empty($_POST['DateNaissance']))
           {
             $this->oUtil->sErrMsg = 'Tous les champs doivent être remplis.';
           }
@@ -81,7 +85,11 @@ class Admin extends Blog
             $this->oUtil->getModel('Admin');
             $this->oModel = new \BlogPhp\Model\Admin;
 
-            $aData = array('title' => $_POST['title'], 'body' => $_POST['body'], 'created_date' => date('Y-m-d H:i:s'));
+            $aData = array(
+            'nom' => $_POST['nom'], 
+            'DateNaissance' => $_POST['DateNaissance'], 
+            'DateDeces' => !empty($_POST['DateDeces']) ? $_POST['DateDeces'] : NULL, 
+            'Proprietaire_id' => $_POST['Proprietaire_id']);
             $this->oModel->add($aData);
 
             if (!empty($_FILES['image']['name']))

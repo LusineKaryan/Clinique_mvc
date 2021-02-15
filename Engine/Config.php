@@ -12,5 +12,5 @@ final class Config
     DB_PWD = '',
 
     // Titre du site
-    SITE_NAME = 'Clinique vétérinaire';
+    SITE_NAME = 'Vitrine de la clinique';
 }
