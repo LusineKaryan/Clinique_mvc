@@ -21,7 +21,7 @@ class Admin extends Blog
     // Affiche la page d'edition d'article
     // Suite à l'envoie du formulaire, on récupère les données saisies pour puis on update les données du post.
     // Si on modifie l'image associée, on vérifie que l'extension existe (jpg, png ...)
-    public function editPost()
+    public function editAnimal()
     {
       if (!$this->isLogged())
       header('Location: blog_index.html');
@@ -37,9 +37,10 @@ class Admin extends Blog
           $this->oUtil->getModel('Admin');
           $this->oModel = new \BlogPhp\Model\Admin;
 
-          $aData = array('post_id' => $_GET['id'], 'nom' => $_POST['nom'], 
+          $aData = array('animal_id' => $_GET['id'], 'nom' => $_POST['nom'], 
                                                     'DateNaissance' => $_POST['DateNaissance'], 
-                                                    'DateDeces' => $_POST['DateDeces'], 
+                                                    'DateDeces' => $_POST['DateDeces'],
+                                                    'typeAnimal' => $_POST['typeAnimal'],
                                                     'Proprietaire_id' => $_POST['Proprietaire_id']);
           $this->oModel->update($aData);
 
@@ -122,7 +123,7 @@ class Admin extends Blog
       $this->oModel = new \BlogPhp\Model\Admin;
 
       $tables = [
-      	'Publications' 	      	 => 'Posts',
+      	'Chapters' 	      	 => 'Animal',
       	'Commentaires' 	  	     => 'Comments',
       	'Utilisateurs' 	         => 'Users',
         'Signalements'           => 'Votes'
@@ -212,7 +213,7 @@ class Admin extends Blog
     public function deleteComment()
     {
       if (!$this->isLogged())
-      header('Location: blog_index.html');
+      header("Location: blog_index_$oAnimal->id.html");
 
       $oPost = $this->oUtil->oPost = $this->oModel->getById($_GET['postid']); // Récupère les données du post
       $this->oUtil->getModel('Admin');

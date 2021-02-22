@@ -24,8 +24,8 @@
     <tbody>
       <?php foreach ($this->oAnimals as $oAnimal): ?>
         <tr>
-          <td><?= $oAnimal->nom ?></td>
-          <td>Née le <?= date('d/m/Y à H:i', strtotime($oAnimal->DateNaissance)); ?></td>
+        <td><a href="blog_post_<?=$oAnimal->id?>.html"><strong><?= $oAnimal->nom ?></strong></a></td>
+          <td>Né le <?= date('d/m/Y à H:i', strtotime($oAnimal->DateNaissance)); ?></td>
           <td>
             <?php require 'inc/control_buttons.php' ?>
           </td>

@@ -61,7 +61,7 @@ class Blog
                                         t1.DateNaissance, 
                                         t1.image, 
                                         t1.nom, 
-                                        t2.nom as race, 
+                                        t2.nom as race,
                                         typeAnimal, 
                                         Propriétaire_id FROM animal AS t1
                                         INNER JOIN (SELECT Animal_id, nom, \'Chat\' as typeAnimal FROM chat As A 

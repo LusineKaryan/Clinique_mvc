@@ -40,7 +40,7 @@
       		<?php if(!empty($this->oComments)): ?>
       			<?php foreach($this->oComments as $comment): ?>
       				<tr id="commentaire_<?= $comment->id ?>">
-      					<td><a href="blog_post_<?=$comment->post_id?>.html"><strong><?= $comment->title ?></strong></a></td>
+      					<td><a href="blog_post_<?=$comment->animal_id?>.html"><strong><?= $comment->title ?></strong></a></td>
       					<td><?= substr($comment->comment,0,100); ?></td>
       					<td>
       						<a id="<?= $comment->id ?>" class="btn-floating btn-small waves-effect waves-light green see_comment"><i class="material-icons">done</i></a>
