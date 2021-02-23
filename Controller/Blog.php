@@ -8,7 +8,7 @@ if (empty($_GET['a'])) {
 
 class Blog
 {
-  const MAX_POSTS = 2;
+  const MAX_POSTS = 3;
 
   protected $oUtil, $oModel;
   private $_iId;
