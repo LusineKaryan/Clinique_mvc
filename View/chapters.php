@@ -14,7 +14,7 @@
   					<div class="col s12 m6 l8">
 					<p><?= $oAnimal->typeAnimal?></p>  
 					<p>Date de naissance: &nbsp<?=date('d/m/Y', strtotime($oAnimal->DateNaissance));?></p>
-					<p><?= $oAnimal->Propriétaire_id?></p>
+					<p>Propriétaire: &nbsp<?= $oAnimal->Propriétaire_id?></p>
 					<p>Race: &nbsp<?= $oAnimal->race?></p>
 					
               <?php require 'inc/control_buttons.php' ?>

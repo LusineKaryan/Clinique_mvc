@@ -253,7 +253,7 @@ class Blog
 		{
 			$this->oUtil->getView('not_found');
 		}
-		header('Location: ' . ROOT_URL . 'blog_post_' . $_GET['postid'] . '.html#comment_ink');
+		header('Location: ' . ROOT_URL . 'blog_post_' . $_GET['animalid'] . '.html#comment_ink');
 	}
 
 

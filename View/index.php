@@ -12,7 +12,7 @@
 
       <!-- ARTICLES -->
       <?php foreach ($this->oAnimals as $oAnimal): ?>
-        <div class="col l6 m6 s12">
+        <div class="col l4 m6 s12">
           <div class="card hoverable">
             <div class="card-content">
               <h5><a class="grey-text text-darken-2" href="<?=ROOT_URL?>blog_post_<?=$oAnimal->id?>.html"><?=htmlspecialchars($oAnimal->nom)?></a></h5>
@@ -27,7 +27,11 @@
             </div>
             <div class="card-reveal">
     					<span class="card-title grey-text text-darken-4"><?= $oAnimal->nom ?><i class="material-icons right">close</i></span>
-    					<p><?= preg_replace("/<img[^>]+\>/i", "", nl2br(mb_strimwidth($oAnimal->body, 0, 800, '...'))); ?></p>
+    					
+              <p>Date de naissance : <br />
+              <?= date( "d-m-Y", strtotime($oAnimal->DateNaissance) );?>
+              </p>
+              <p><?= preg_replace("/<img[^>]+\>/i", "", nl2br(mb_strimwidth($oAnimal->body, 0, 800, '...'))); ?></p>
     				</div>
           </div>
         </div>
