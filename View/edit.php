@@ -2,7 +2,7 @@
 <?php require 'inc/topbar.php' ?>
 
 <div class="container">
-  <?php if (empty($this->oAnimal)): ?>
+  <?php if (empty($this->oAnimals)): ?>
     <h1>Il n'y a aucun animal.</h1>
     <p><button type="button" onclick="window.location='<?=ROOT_URL?>admin_add.html'" class="btn waves-effect waves-light">Ajoutez votre premier animal!</button></p>
   <?php else: ?>
